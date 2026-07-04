@@ -1,0 +1,135 @@
+{
+  "workbench.editor.languageDetection": true,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.semanticTokenColorCustomizations": {
+    "enabled": true,
+    "rules": {
+      "namespace": "#4EC9B0",
+      "type": "#4EC9B0",
+      "class": "#4EC9B0",
+      "struct": "#4EC9B0",
+      "enum": "#4EC9B0",
+      "function": "#DCDCAA",
+      "method": "#DCDCAA",
+      "macro": "#C586C0",
+      "parameter": "#9CDCFE",
+      "variable": "#D4D4D4",
+      "property": "#9CDCFE"
+    }
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "keyword",
+          "keyword.control",
+          "storage.type",
+          "storage.modifier"
+        ],
+        "settings": {
+          "foreground": "#C586C0"
+        }
+      },
+      {
+        "scope": [
+          "entity.name.function",
+          "support.function"
+        ],
+        "settings": {
+          "foreground": "#DCDCAA"
+        }
+      },
+      {
+        "scope": [
+          "entity.name.type",
+          "entity.name.class",
+          "support.type",
+          "support.class"
+        ],
+        "settings": {
+          "foreground": "#4EC9B0"
+        }
+      },
+      {
+        "scope": [
+          "string",
+          "string.quoted"
+        ],
+        "settings": {
+          "foreground": "#CE9178"
+        }
+      },
+      {
+        "scope": [
+          "constant.numeric",
+          "constant.language"
+        ],
+        "settings": {
+          "foreground": "#B5CEA8"
+        }
+      },
+      {
+        "scope": [
+          "comment",
+          "punctuation.definition.comment"
+        ],
+        "settings": {
+          "foreground": "#6A9955",
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "variable.parameter",
+          "variable.other.member"
+        ],
+        "settings": {
+          "foreground": "#9CDCFE"
+        }
+      }
+    ]
+  },
+  "editor.bracketPairColorization.enabled": true,
+  "editor.inlineSuggest.enabled": false,
+  "editor.tabFocusMode": false,
+  "editor.tabCompletion": "on",
+  "editor.suggestSelection": "first",
+  "editor.suggest.selectionMode": "always",
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.quickSuggestionsDelay": 0,
+  "editor.suggest.insertMode": "insert",
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "off",
+    "strings": "off"
+  },
+  "files.associations": {
+    "*.launch.py": "python",
+    "*.msg": "rosmsg",
+    "*.srv": "rossrv",
+    "*.action": "rosaction",
+    "chrono": "cpp",
+    "cmath": "cpp",
+    "memory": "cpp",
+    "functional": "cpp",
+    "algorithm": "cpp"
+  },
+  "C_Cpp.enhancedColorization": "enabled",
+  "C_Cpp.intelliSenseEngine": "default",
+  "C_Cpp.autocomplete": "default",
+  "C_Cpp.errorSquiggles": "enabled",
+  "C_Cpp.default.compilerPath": "/usr/bin/g++",
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+  "C_Cpp.default.configurationProvider": "",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/**",
+    "/opt/ros/jazzy/include/**"
+  ],
+  "cmake.sourceDirectory": "/home/zh/work_zh/02_ros2_ws/my_interface",
+  "cmake.configureSettings": {
+    "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+  }
+}
