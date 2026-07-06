@@ -16,6 +16,7 @@
   <depend>geometry_msgs</depend>
   <depend>std_srvs</depend>
   <depend>my_interface</depend>
+  <depend>rclcpp_action</depend>
 
   <exec_depend>rosidl_default_runtime</exec_depend>
   <exec_depend>launch_ros</exec_depend>

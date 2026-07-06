@@ -12,13 +12,14 @@ find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(my_interface REQUIRED)
+find_package(rclcpp_action REQUIRED)
 
 
 add_executable(cmd_publisher src/cmd_pub.cpp)
 ament_target_dependencies(cmd_publisher rclcpp std_msgs geometry_msgs )
 
 add_executable(robot_controller src/robot_controller.cpp)
-ament_target_dependencies(robot_controller rclcpp std_msgs geometry_msgs std_srvs my_interface)
+ament_target_dependencies(robot_controller rclcpp std_msgs geometry_msgs std_srvs my_interface rclcpp_action)
 
 add_executable(pose_monitor src/pose_monitor.cpp)
 ament_target_dependencies(pose_monitor rclcpp std_msgs geometry_msgs my_interface)

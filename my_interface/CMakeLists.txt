@@ -15,6 +15,8 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotPose.msg"
+  "srv/ResetPose.srv"
+  "action/MoveToPose.action"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
