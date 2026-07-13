@@ -1,3 +1,5 @@
+from os import name
+
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
@@ -27,6 +29,18 @@ def generate_launch_description():
                 executable='pose_monitor',
                 name='pose_monitor',
                 output='screen'
+            ),
+            Node(
+                package='robot_demo',
+                executable='robot_runtime_manager',
+                name='robot_runtime_manager',
+                output='screen',
+                parameters=[
+                    {
+                        'auto_mode':False,
+                        'paused':False
+                    }
+                ]
             )
         ]
     )

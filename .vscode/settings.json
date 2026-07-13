@@ -128,7 +128,7 @@
     "${workspaceFolder}/**",
     "/opt/ros/jazzy/include/**"
   ],
-  "cmake.sourceDirectory": "/home/zh/work_zh/02_ros2_ws/my_interface",
+  "cmake.sourceDirectory": "/home/zh/work_zh/2_ros2_ws/my_interface",
   "cmake.configureSettings": {
     "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
   }

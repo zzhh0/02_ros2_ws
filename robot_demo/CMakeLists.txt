@@ -13,6 +13,9 @@ find_package(geometry_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(my_interface REQUIRED)
 find_package(rclcpp_action REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(tf2_msgs REQUIRED)
 
 
 add_executable(cmd_publisher src/cmd_pub.cpp)
@@ -25,7 +28,7 @@ add_executable(pose_monitor src/pose_monitor.cpp)
 ament_target_dependencies(pose_monitor rclcpp std_msgs geometry_msgs my_interface)
 
 add_executable(robot_runtime_manager src/robot_runtime_manager.cpp)
-ament_target_dependencies(robot_runtime_manager rclcpp std_msgs geometry_msgs)
+ament_target_dependencies(robot_runtime_manager rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs tf2_msgs)
 
 
 #安装目标文件
