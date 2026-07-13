@@ -24,12 +24,16 @@ ament_target_dependencies(robot_controller rclcpp std_msgs geometry_msgs std_srv
 add_executable(pose_monitor src/pose_monitor.cpp)
 ament_target_dependencies(pose_monitor rclcpp std_msgs geometry_msgs my_interface)
 
+add_executable(robot_runtime_manager src/robot_runtime_manager.cpp)
+ament_target_dependencies(robot_runtime_manager rclcpp std_msgs geometry_msgs)
+
 
 #安装目标文件
 install(TARGETS
   cmd_publisher
   robot_controller
   pose_monitor
+  robot_runtime_manager
   DESTINATION lib/${PROJECT_NAME}
 )
 # 安装启动文件
