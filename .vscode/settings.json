@@ -106,6 +106,10 @@
     "strings": "off"
   },
   "files.associations": {
+    "*.xacro": "xml",
+    "*.urdf": "xml",
+    "*.sdf": "xml",
+    "*.world": "xml",
     "*.launch.py": "python",
     "*.msg": "rosmsg",
     "*.srv": "rossrv",
