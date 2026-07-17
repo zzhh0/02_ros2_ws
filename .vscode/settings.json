@@ -1,4 +1,8 @@
 {
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "python.analysis.extraPaths": [
+    "/opt/ros/jazzy/lib/python3.12/site-packages"
+  ],
   "workbench.editor.languageDetection": true,
   "editor.semanticHighlighting.enabled": true,
   "editor.semanticTokenColorCustomizations": {
