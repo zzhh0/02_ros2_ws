@@ -1,8 +1,0 @@
-{
-  "recommendations": [
-    "ms-vscode.cpptools",
-    "ms-iot.vscode-ros",
-    "ms-python.python",
-    "twxs.cmake"
-  ]
-}
