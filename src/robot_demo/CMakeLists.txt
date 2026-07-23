@@ -11,7 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
-find_package(my_interface REQUIRED)
+find_package(robot_interfaces REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
@@ -22,10 +22,10 @@ add_executable(cmd_publisher src/cmd_pub.cpp)
 ament_target_dependencies(cmd_publisher rclcpp std_msgs geometry_msgs )
 
 add_executable(robot_controller src/robot_controller.cpp)
-ament_target_dependencies(robot_controller rclcpp std_msgs geometry_msgs std_srvs my_interface rclcpp_action)
+ament_target_dependencies(robot_controller rclcpp std_msgs geometry_msgs std_srvs robot_interfaces rclcpp_action)
 
 add_executable(pose_monitor src/pose_monitor.cpp)
-ament_target_dependencies(pose_monitor rclcpp std_msgs geometry_msgs my_interface)
+ament_target_dependencies(pose_monitor rclcpp std_msgs geometry_msgs robot_interfaces)
 
 add_executable(robot_runtime_manager src/robot_runtime_manager.cpp)
 ament_target_dependencies(robot_runtime_manager rclcpp std_msgs geometry_msgs sensor_msgs nav_msgs tf2_msgs)
@@ -39,11 +39,6 @@ install(TARGETS
   robot_runtime_manager
   DESTINATION lib/${PROJECT_NAME}
 )
-# 安装启动文件
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
-
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

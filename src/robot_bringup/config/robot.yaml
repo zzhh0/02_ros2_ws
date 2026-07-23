@@ -1,0 +1,9 @@
+robot_controller:
+  ros__parameters:
+    max_linear_speed: 1.0
+    max_angular_speed: 1.0
+
+robot_runtime_manager:
+  ros__parameters:
+    auto_mode: false
+    paused: false

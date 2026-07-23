@@ -5,13 +5,13 @@
 #include <cmath>
 #include "std_srvs/srv/empty.hpp"
 #include <algorithm>
-#include "my_interface/msg/robot_pose.hpp"
-#include "my_interface/srv/reset_pose.hpp"
-#include "my_interface/action/move_to_pose.hpp"
+#include "robot_interfaces/msg/robot_pose.hpp"
+#include "robot_interfaces/srv/reset_pose.hpp"
+#include "robot_interfaces/action/move_to_pose.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include <thread>
 
-using MoveToPose  = my_interface::action::MoveToPose;
+using MoveToPose  = robot_interfaces::action::MoveToPose;
 using GoalHandleMoveToPose = rclcpp_action::ServerGoalHandle<MoveToPose>;
 using namespace std::chrono_literals;
 
@@ -27,7 +27,7 @@ class RobotController:public rclcpp::Node
             std::bind(&RobotController::subCallBack,this,std::placeholders::_1));
 
             mPosePublisher = this->create_publisher<geometry_msgs::msg::Pose2D>("/robot_pose",10);
-            mMyPosePublisher = this->create_publisher<my_interface::msg::RobotPose>("/my_robot_pose",10);
+            mMyPosePublisher = this->create_publisher<robot_interfaces::msg::RobotPose>("/my_robot_pose",10);
 
             mTimer = this->create_wall_timer(100ms,std::bind(&RobotController::updataPose,this));
 
@@ -36,7 +36,7 @@ class RobotController:public rclcpp::Node
                 std::bind(&RobotController::resetService,this,std::placeholders::_1,std::placeholders::_2));
         
         
-            mMyResetService = this->create_service<my_interface::srv::ResetPose>("/my_reset_pose",
+            mMyResetService = this->create_service<robot_interfaces::srv::ResetPose>("/my_reset_pose",
                 std::bind(&RobotController::myResetService,this,std::placeholders::_1,std::placeholders::_2));
         
             mMoveToPoseActionServer = rclcpp_action::create_server<MoveToPose>(
@@ -71,7 +71,7 @@ class RobotController:public rclcpp::Node
             mPosePublisher->publish(pose);
 
             //自定义pose消息
-            my_interface::msg::RobotPose myPose;
+            robot_interfaces::msg::RobotPose myPose;
             myPose.x = mX;
             myPose.y = mY;
             myPose.theta = mTheta;
@@ -96,7 +96,7 @@ class RobotController:public rclcpp::Node
             RCLCPP_INFO(this->get_logger(),"pose reset to zero ... ");
         }
 
-        void myResetService(const std::shared_ptr<my_interface::srv::ResetPose::Request> aRequest,std::shared_ptr<my_interface::srv::ResetPose::Response> aResponse)
+        void myResetService(const std::shared_ptr<robot_interfaces::srv::ResetPose::Request> aRequest,std::shared_ptr<robot_interfaces::srv::ResetPose::Response> aResponse)
         {
             //处理请求
             mX = aRequest->x;
@@ -208,8 +208,8 @@ class RobotController:public rclcpp::Node
         geometry_msgs::msg::Twist mTwist;
         rclcpp::Publisher<geometry_msgs::msg::Pose2D>::SharedPtr mPosePublisher; //发布者
         rclcpp::Service<std_srvs::srv::Empty>::SharedPtr mResetService; //服务
-        rclcpp::Publisher<my_interface::msg::RobotPose>::SharedPtr mMyPosePublisher; //自定义消息发布者
-        rclcpp::Service<my_interface::srv::ResetPose>::SharedPtr mMyResetService; //自定义服务
+        rclcpp::Publisher<robot_interfaces::msg::RobotPose>::SharedPtr mMyPosePublisher; //自定义消息发布者
+        rclcpp::Service<robot_interfaces::srv::ResetPose>::SharedPtr mMyResetService; //自定义服务
         rclcpp_action::Server<MoveToPose>::SharedPtr mMoveToPoseActionServer;  //自定义action
 
 
